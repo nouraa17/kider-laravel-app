@@ -1,0 +1,13 @@
+@extends('layouts.pages')
+@section('content')
+@include('includes.appointment')
+@endsection
+@section('title')
+Appointment
+@endsection
+@section('gHeaderT')
+Appointment
+@endsection
+@section('gHeaderA')
+Appointment
+@endsection

@@ -1,0 +1,13 @@
+@extends('layouts.pages')
+@section('content')
+@include('includes.testimonial')
+@endsection
+@section('title')
+Testimonial
+@endsection
+@section('gHeaderT')
+Testimonial
+@endsection
+@section('gHeaderA')
+Testimonial
+@endsection

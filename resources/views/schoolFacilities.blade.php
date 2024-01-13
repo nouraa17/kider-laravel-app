@@ -1,0 +1,13 @@
+@extends('layouts.pages')
+@section('content')
+@include('includes.facilities')
+@endsection
+@section('title')
+Facilities
+@endsection
+@section('gHeaderT')
+Facilities
+@endsection
+@section('gHeaderA')
+Facilities
+@endsection
