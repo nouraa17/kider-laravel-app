@@ -66,7 +66,9 @@ Route::get('/base', function () {
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 // with controller
-Route::get('/index', [PageController::class, 'index'])->name('home');
+Route::get('/admin', [PageController::class, 'admin'])->name('admin');
+
+Route::get('/home', [PageController::class, 'index'])->name('home');
 
 Route::get('/about', [PageController::class, 'about'])->name('about');
 
@@ -88,5 +90,14 @@ Route::fallback(PageController::class)->name('404');
 ///////////////////////////////////////////////////////////////////////////////////////////
 //testimonial page
 Route::get('testimonial',  [TestimonialController::class, 'index'])->name('testimonial');
-Route::get('createtestimonial',  [TestimonialController::class, 'create'])->name('createTestimonial');
-Route::post('storetestimonial',  [TestimonialController::class, 'store'])->name('storeTestimonial');
+Route::get('testimonialList',  [TestimonialController::class, 'list'])->name('testimonialList');
+Route::get('createTestimonial',  [TestimonialController::class, 'create'])->name('createTestimonial');
+Route::post('storeTestimonial',  [TestimonialController::class, 'store'])->name('storeTestimonial');
+Route::get('editTestimonial/{id}',  [TestimonialController::class, 'edit'])->name('editTestimonial');
+Route::put('updateTestimonial/{id}',  [TestimonialController::class, 'update'])->name('updateTestimonial');
+Route::get('SdeleteTestimonial/{id}',  [TestimonialController::class, 'destroy'])->name('SdeleteTestimonial');
+Route::get('trashTestimonial',  [TestimonialController::class, 'trash'])->name('trashTestimonial');
+Route::get('FdeleteTestimonial/{id}',  [TestimonialController::class, 'forceDelete'])->name('FdeleteTestimonial');
+Route::get('restoreTestimonial/{id}',  [TestimonialController::class, 'restore'])->name('restoreTestimonial');
+Route::get('viewTestimonial/{id}',  [TestimonialController::class, 'show'])->name('viewTestimonial');
+

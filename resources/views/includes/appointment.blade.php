@@ -10,14 +10,14 @@
                                     <div class="row g-3">
                                         <div class="col-sm-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="gname" placeholder="Gurdian Name">
-                                                <label for="gname">Gurdian Name</label>
+                                                <input type="text" class="form-control border-0" id="gname" placeholder="Guardian Name">
+                                                <label for="gname">Guardian Name</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-floating">
-                                                <input type="email" class="form-control border-0" id="gmail" placeholder="Gurdian Email">
-                                                <label for="gmail">Gurdian Email</label>
+                                                <input type="email" class="form-control border-0" id="gmail" placeholder="Guardian Email">
+                                                <label for="gmail">Guardian Email</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">

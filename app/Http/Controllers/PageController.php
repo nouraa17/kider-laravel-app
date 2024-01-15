@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    public function admin()
+    { 
+        return view('admin.dashboard');
+    }
     public function index()
     { 
-        return view('index');
+        $testimonials = Testimonial::get();
+
+        return view('index', compact('testimonials'));
     }
     public function about()
     { 
@@ -16,7 +23,8 @@ class PageController extends Controller
     }
     public function classes()
     { 
-        return view('classes');
+        $testimonials = Testimonial::get();
+        return view('classes', compact('testimonials'));
     }
     public function contact()
     { 

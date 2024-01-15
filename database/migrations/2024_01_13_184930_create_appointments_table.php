@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->string('gurdianName',50);
-            $table->string('gurdianEmail',50);
+            $table->string('guardianName',50);
+            $table->string('guardianEmail',50);
             $table->string('childName',50);
             $table->integer('childAge');
             $table->longText('message');

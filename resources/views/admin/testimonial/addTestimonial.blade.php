@@ -1,53 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Add Testimonial</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-    <div class="container">
-        <h2>Add New Testimonial</h2>
-        <form action="{{route ('storeTestimonial')}}" method="post" enctype="multipart/form-data">
-            @csrf
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" value="{{ old('name') }}">
-                @error('name')
-                    {{ $message }}
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="profession">Profession:</label>
-                <input type="text" class="form-control" id="profession" placeholder="Enter profession" name="profession" value="{{ old('profession') }}">
-                @error('profession')
-                    {{ $message }}
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="testimonial">Description:</label>
-                <textarea class="form-control" name="description" id="" cols="60" rows="3">{{ old('description') }}</textarea>
-                @error('description')
-                    {{ $message }}
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="image">Image:</label>
-                <input type="file" class="form-control" id="image" name="image">
-                @error('image')
-                    {{ $message }}
-                @enderror
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label><input type="checkbox" name="published" @checked(old('published'))> Published</label>
+@extends('admin.dashboard')
+@section('pageContent')
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-9">
+            <div style="margin-left: 150px;" class="card">
+                <div class="card-header">
+                    <h4 style="margin-left: 20px;" class="title">Add Testimonial</h4>
                 </div>
+                <div class="card-body">
+                    @if(session('success'))
+                    <div class="alert alert-success">
+                        <span><b> Success - </b>{{ session('success') }}</span>
+                    </div>
+                    @endif
+
+
+                    
+                    <div class="container">
+                        <form action="{{route('storeTestimonial')}}" method="post" enctype="multipart/form-data"
+                            style="max-width: 800px; margin: auto;">
+                            @csrf
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label style="font-size: 16px; ">Name</label>
+                                        <input style="font-size: 16px;" type="text" class="form-control"
+                                            placeholder="Enter name" name="name">
+                                        <div style="color: red;">
+                                            @error('name')
+                                            {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label style="font-size: 16px;">Profession</label>
+                                        <input style="font-size: 16px;" type="text" class="form-control"
+                                            placeholder="Enter profession" name="profession">
+                                        <div style="color: red;">
+                                            @error('profession')
+                                            {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label style="font-size: 16px;">Description</label>
+                                        <textarea style="font-size: 16px;" type="text" class="form-control"
+                                            placeholder="Enter description" name="description" cols="60"
+                                            rows="3"></textarea>
+                                        <div style="color: red;">
+                                            @error('description')
+                                            {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group-filegroup">
+                                        <label style="font-size: 16px;" for="image">Image</label>
+                                        <div class="input-group">
+                                            <input type="file" id="image" name="image" class="form-control">
+                                        </div>
+                                        <div style="color: red;">
+                                            @error('image')
+                                            {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label style="font-size: 16px; margin-right: 680px;">Puplished</label>
+                                        <div class="checkbox">
+                                            <label><input style="margin-right:10px;" type="checkbox" name="published">Published</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <button style="font-size: 16px;" class="btn btn-primary w-100 py-3"
+                                            type="submit">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+
+
             </div>
-            <button type="submit" class="btn btn-default">Insert</button>
-        </form>
+        </div>
     </div>
-</body>
-</html>
+</div>
+
+@endsection
