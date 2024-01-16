@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 style="margin-left: 20px;" class="title">Testimonials Trash</h4>
+                    <h4 style="margin-left: 20px;" class="title">Appointments Trash</h4>
                 </div>
                 <div class="card-body">
 
@@ -15,19 +15,19 @@
                         <table class="table">
                             <thead class=" text-primary">
                                 <th>
-                                    Name
+                                    Guardian Name
                                 </th>
                                 <th>
-                                    Profession
+                                    Guardian Email
                                 </th>
                                 <th>
-                                    Description
+                                    Child Name
                                 </th>
                                 <th>
-                                    Image
+                                    Child Age
                                 </th>
                                 <th>
-                                    Published
+                                    Message
                                 </th>
                                 <th class="text-right">
                                     Restore
@@ -37,29 +37,31 @@
                                 </th>
                             </thead>
                             <tbody>
-                                @foreach($testimonials as $testimonial)
+                            @foreach($appointments as $appointment)
                                 <tr>
                                     <td>
-                                        {{$testimonial->name}}
+                                        {{$appointment->guardianName}}
                                     </td>
                                     <td>
-                                        {{$testimonial->profession}}
+                                        {{$appointment->guardianEmail}}
+                                    </td>
+                                    <td>
+                                        {{$appointment->childName}}
+                                    </td>
+                                    <td>{{$appointment->childAge}}
                                     </td>
                                     <td style="max-width:10px; overflow:hidden; text-overflow:ellipsis; white-space: nowrap;">
-                                        {{$testimonial->description}}
-                                    </td>
-                                    <td><img src="{{ asset('assets/testimonialImages/'.$testimonial->image)}}"
-                                            width=70px height=70px alt="img">
-                                    </td>
-                                    <td>
-                                        {{$testimonial->published}}
+                                        {{$appointment->message}}
                                     </td>
                                     <td class="text-right">
-                                        <a href="restoreTestimonial/{{$testimonial->id}}" class="btn btn-secondry" data-original-title="Edit Task"><i
+                                        <a href="restoreAppointment/{{$appointment->id}}" class="btn btn-secondry"
+                                            data-original-title="Edit Task"><i
                                                 class="now-ui-icons arrows-1_refresh-69"></i></a>
                                     </td>
                                     <td class="text-right">
-                                        <a href="FdeleteTestimonial/{{$testimonial->id}}" class="btn btn-danger" data-original-title="Remove" onclick="return confirm('Are you sure you want to delete?')"><i
+                                        <a href="FdeleteAppointment/{{$appointment->id}}" class="btn btn-danger"
+                                            data-original-title="Remove"
+                                            onclick="return confirm('Are you sure you want to delete?')"><i
                                                 class="now-ui-icons ui-1_simple-remove"></i></a>
                                     </td>
                                 </tr>

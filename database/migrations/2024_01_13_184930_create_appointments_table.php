@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('childName',50);
             $table->integer('childAge');
             $table->longText('message');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

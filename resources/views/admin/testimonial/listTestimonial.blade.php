@@ -48,7 +48,7 @@
                                     <td>
                                         {{$testimonial->profession}}
                                     </td>
-                                    <td>
+                                    <td style="max-width:10px; overflow:hidden; text-overflow:ellipsis; white-space: nowrap;">
                                         {{$testimonial->description}}
                                     </td>
                                     <td><img src="{{ asset('assets/testimonialImages/'.$testimonial->image)}}"

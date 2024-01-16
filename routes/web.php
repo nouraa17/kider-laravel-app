@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\TestimonialController;
 use App\Models\Testimonial;
@@ -100,4 +101,13 @@ Route::get('trashTestimonial',  [TestimonialController::class, 'trash'])->name('
 Route::get('FdeleteTestimonial/{id}',  [TestimonialController::class, 'forceDelete'])->name('FdeleteTestimonial');
 Route::get('restoreTestimonial/{id}',  [TestimonialController::class, 'restore'])->name('restoreTestimonial');
 Route::get('viewTestimonial/{id}',  [TestimonialController::class, 'show'])->name('viewTestimonial');
+///////////////////////////////////////////////////////////////////////////////////////////
+//appointment page
+Route::get('appointmentList',  [AppointmentController::class, 'index'])->name('appointmentList');
+Route::post('storeAppointment',  [AppointmentController::class, 'store'])->name('storeAppointment');
+Route::get('SdeleteAppointment/{id}',  [AppointmentController::class, 'destroy'])->name('SdeleteAppointment');
+Route::get('trashAppointment',  [AppointmentController::class, 'trash'])->name('trashAppointment');
+Route::get('FdeleteAppointment/{id}',  [AppointmentController::class, 'forceDelete'])->name('FdeleteAppointment');
+Route::get('restoreAppointment/{id}',  [AppointmentController::class, 'restore'])->name('restoreAppointment');
+Route::get('viewAppointment/{id}',  [AppointmentController::class, 'show'])->name('viewAppointment');
 

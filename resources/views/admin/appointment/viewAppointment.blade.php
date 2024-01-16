@@ -6,7 +6,7 @@
         <div class="col-md-9">
             <div style="margin-left: 150px;" class="card">
                 <div class="card-header">
-                    <h4 style="margin-left: 20px;" class="title">Show Testimonial</h4>
+                    <h4 style="margin-left: 20px;" class="title">Show Appointment</h4>
                 </div>
                 <div class="card-body">
 
@@ -17,9 +17,9 @@
                             <div class="row mb-2">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label style="font-size: 16px; ">Name</label>
+                                        <label style="font-size: 16px; ">Guardian Name</label>
                                         <p style="font-size: 16px;" type="text" 
-                                            placeholder="Enter name" name="name">{{$testimonial->name}}</p>
+                                             name="guardianName">{{$appointment->guardianName}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -27,9 +27,9 @@
                             <div class="row mb-2">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label style="font-size: 16px;">Profession</label>
+                                        <label style="font-size: 16px;">Guardian Email</label>
                                         <p style="font-size: 16px;" type="text"
-                                            placeholder="Enter profession" name="profession">{{$testimonial->profession}}</p>
+                                             name="guardianEmail">{{$appointment->guardianEmail}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -37,20 +37,9 @@
                             <div class="row mb-2">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label style="font-size: 16px;">Description</label>
+                                        <label style="font-size: 16px;">Child Name</label>
                                         <p style="font-size: 16px;" type="text"
-                                            placeholder="Enter description" name="description" cols="60"
-                                            rows="3">{{$testimonial->description}}</p>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="row mb-2">
-                                <div class="col-md-12">
-                                    <div class="form-group-filegroup">
-                                        <label style="font-size: 16px;" for="image">Image</label>
-                                        <div><img src="{{ asset('assets/testimonialImages/'.$testimonial->image)}}" width=300px name="oldImage"></div><br>
+                                             name="childName">{{$appointment->childName}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -58,9 +47,26 @@
                             <div class="row mb-2">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <p style="font-size: 16px; margin-right: 680px;" name="published">{{$testimonial->published? "Published": "Not Published"}}</p>                                   </div>
+                                        <label style="font-size: 16px;">Child Age</label>
+                                        <p style="font-size: 16px;" type="text"
+                                            name="childAge">{{$appointment->childAge}}</p>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label style="font-size: 16px;">Message</label>
+                                        <p style="font-size: 16px;" type="text"
+                                            name="message" cols="60"
+                                            rows="3">{{$appointment->message}}</p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            
                         </form>
                     </div>
                 </div>
