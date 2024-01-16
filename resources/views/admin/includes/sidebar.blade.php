@@ -22,13 +22,13 @@
               <p>Teachers</p>
             </a>
           </li>
-          <li>
+          <li  class="{{ in_array(request()->route()->getName(), ['testimonial', 'testimonialList', 'createTestimonial','editTestimonial','trashTestimonial','viewTestimonial']) ? 'active' : '' }}">
             <a href="">
               <i class="now-ui-icons ui-1_calendar-60"></i>
               <p>Appointments</p>
             </a>
           </li>
-          <li class="active">
+          <li class="{{ in_array(request()->route()->getName(), ['testimonial', 'testimonialList', 'createTestimonial','editTestimonial','trashTestimonial','viewTestimonial']) ? 'active' : '' }}">
             <a href="{{route('testimonialList')}}">
               <i class="now-ui-icons ui-2_favourite-28"></i>
               <p>Testimonials</p>
