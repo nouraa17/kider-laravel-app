@@ -21,9 +21,11 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        $testimonials = Testimonial::get();
+        // $testimonials = Testimonial::get();
+        $testimonials = Testimonial::where('published', true)->latest()->take(3)->get();
         return view('testimonial', compact('testimonials'));
     }
+
     public function list()
     {
         $testimonials = Testimonial::get();
@@ -66,7 +68,7 @@ class TestimonialController extends Controller
     {
         $testimonial = Testimonial::findOrFail($id);
         return view('admin.testimonial.viewTestimonial', compact('testimonial'));
-        }
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -98,7 +100,7 @@ class TestimonialController extends Controller
         Testimonial::where('id', $id)->update($testimonial);
 
 
-        return redirect('editTestimonial/'.$id)->with('success', 'Testimonial has been updated successfully!');
+        return redirect('editTestimonial/' . $id)->with('success', 'Testimonial has been updated successfully!');
     }
 
 

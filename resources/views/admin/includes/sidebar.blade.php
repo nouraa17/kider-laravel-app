@@ -36,6 +36,14 @@
           <p>Testimonials</p>
         </a>
       </li>
+
+      <li
+        class="{{ in_array(request()->route()->getName(), ['contactUsList', 'viewContactUs']) ? 'active' : '' }}">
+        <a href="{{route('contactUsList')}}">
+          <i class="now-ui-icons ui-1_calendar-60"></i>
+          <p>Contacts</p>
+        </a>
+      </li>
     </ul>
   </div>
 </div>

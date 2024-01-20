@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\TestimonialController;
 use App\Models\Testimonial;
@@ -16,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Auth::routes(['verify'=>true]);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', function () {
     return view('welcome');
@@ -110,4 +116,10 @@ Route::get('trashAppointment',  [AppointmentController::class, 'trash'])->name('
 Route::get('FdeleteAppointment/{id}',  [AppointmentController::class, 'forceDelete'])->name('FdeleteAppointment');
 Route::get('restoreAppointment/{id}',  [AppointmentController::class, 'restore'])->name('restoreAppointment');
 Route::get('viewAppointment/{id}',  [AppointmentController::class, 'show'])->name('viewAppointment');
+///////////////////////////////////////////////////////////////////////////////////////////
+//contactUs page
+Route::get('contactUsList',  [ContactController::class, 'index'])->name('contactUsList');
+Route::post('/contactSubmit', [ContactController::class, 'store'])->name('contactSubmit');
+Route::get('viewContactUs/{id}',  [ContactController::class, 'show'])->name('viewContactUs');
+Route::get('deleteContact/{id}',  [ContactController::class, 'destroy'])->name('deleteContact');
 
