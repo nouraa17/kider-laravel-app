@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Teacher;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
@@ -15,17 +16,20 @@ class PageController extends Controller
     {
         // $testimonials = Testimonial::get();
         $testimonials = Testimonial::where('published', true)->latest()->take(3)->get();
-        return view('index', compact('testimonials'));
+        $teachers = Teacher::get();
+        return view('index', compact('testimonials','teachers'));
     }
     public function about()
     {
-        return view('about');
+        $teachers = Teacher::get();
+        return view('about', compact('teachers'));
     }
-    public function classes()
-    {
-        $testimonials = Testimonial::get();
-        return view('classes', compact('testimonials'));
-    }
+    // public function classes()
+    // {
+    //     $testimonials = Testimonial::where('published', true)->latest()->take(3)->get();
+    //     $teachers = Teacher::get();
+    //     return view('classes', compact('testimonials','teachers'));
+    // }
     public function contact()
     {
         return view('contact');
@@ -34,10 +38,10 @@ class PageController extends Controller
     {
         return view('schoolFacilities');
     }
-    public function teachers()
-    {
-        return view('teachers');
-    }
+    // public function teachers()
+    // {
+    //     return view('teachers');
+    // }
     public function becomeTeacher()
     {
         return view('becomeTeacher');
@@ -46,10 +50,10 @@ class PageController extends Controller
     {
         return view('appointment');
     }
-    public function testimonial()
-    {
-        return view('testimonial');
-    }
+    // public function testimonial()
+    // {
+    //     return view('testimonial');
+    // }
 
     public function __invoke()
     {

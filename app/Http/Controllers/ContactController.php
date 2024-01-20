@@ -89,7 +89,7 @@ class ContactController extends Controller
      */
     public function destroy(string $id)
     {
-        Contact::where('id', $id)->forceDelete();
+        Contact::where('id', $id)->delete();
         return redirect('contactUsList');
     }
 }

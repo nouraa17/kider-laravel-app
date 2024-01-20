@@ -3,6 +3,8 @@
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TestimonialController;
 use App\Models\Testimonial;
 use Illuminate\Support\Facades\Route;
@@ -79,13 +81,13 @@ Route::get('/home', [PageController::class, 'index'])->name('home');
 
 Route::get('/about', [PageController::class, 'about'])->name('about');
 
-Route::get('/classes', [PageController::class, 'classes'])->name('classes');
+// Route::get('/classes', [PageController::class, 'classes'])->name('classes');
 
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 
 Route::get('schoolFacilities', [PageController::class, 'schoolFacilities'])->name('facilities');
 
-Route::get('teachers',  [PageController::class, 'teachers'])->name('teachers');
+// Route::get('teachers',  [PageController::class, 'teachers'])->name('teachers');
 
 Route::get('becomeTeacher',  [PageController::class, 'becomeTeacher'])->name('becomeTeacher');
 
@@ -122,4 +124,29 @@ Route::get('contactUsList',  [ContactController::class, 'index'])->name('contact
 Route::post('/contactSubmit', [ContactController::class, 'store'])->name('contactSubmit');
 Route::get('viewContactUs/{id}',  [ContactController::class, 'show'])->name('viewContactUs');
 Route::get('deleteContact/{id}',  [ContactController::class, 'destroy'])->name('deleteContact');
-
+///////////////////////////////////////////////////////////////////////////////////////////
+//teacher page
+Route::get('teachers',  [TeacherController::class, 'index'])->name('teachers');
+Route::get('teacherList',  [TeacherController::class, 'list'])->name('teacherList');
+Route::get('createTeacher',  [TeacherController::class, 'create'])->name('createTeacher');
+Route::post('storeTeacher',  [TeacherController::class, 'store'])->name('storeTeacher');
+Route::get('editTeacher/{id}',  [TeacherController::class, 'edit'])->name('editTeacher');
+Route::put('updateTeacher/{id}',  [TeacherController::class, 'update'])->name('updateTeacher');
+Route::get('SdeleteTeacher/{id}',  [TeacherController::class, 'destroy'])->name('SdeleteTeacher');
+Route::get('trashTeacher',  [TeacherController::class, 'trash'])->name('trashTeacher');
+Route::get('FdeleteTeacher/{id}',  [TeacherController::class, 'forceDelete'])->name('FdeleteTeacher');
+Route::get('restoreTeacher/{id}',  [TeacherController::class, 'restore'])->name('restoreTeacher');
+Route::get('viewTeacher/{id}',  [TeacherController::class, 'show'])->name('viewTeacher');
+///////////////////////////////////////////////////////////////////////////////////////////
+//teacher page
+Route::get('classes',  [SubjectController::class, 'index'])->name('classes');
+// Route::get('teacherList',  [TeacherController::class, 'list'])->name('teacherList');
+// Route::get('createTeacher',  [TeacherController::class, 'create'])->name('createTeacher');
+// Route::post('storeTeacher',  [TeacherController::class, 'store'])->name('storeTeacher');
+// Route::get('editTeacher/{id}',  [TeacherController::class, 'edit'])->name('editTeacher');
+// Route::put('updateTeacher/{id}',  [TeacherController::class, 'update'])->name('updateTeacher');
+// Route::get('SdeleteTeacher/{id}',  [TeacherController::class, 'destroy'])->name('SdeleteTeacher');
+// Route::get('trashTeacher',  [TeacherController::class, 'trash'])->name('trashTeacher');
+// Route::get('FdeleteTeacher/{id}',  [TeacherController::class, 'forceDelete'])->name('FdeleteTeacher');
+// Route::get('restoreTeacher/{id}',  [TeacherController::class, 'restore'])->name('restoreTeacher');
+// Route::get('viewTeacher/{id}',  [TeacherController::class, 'show'])->name('viewTeacher');
