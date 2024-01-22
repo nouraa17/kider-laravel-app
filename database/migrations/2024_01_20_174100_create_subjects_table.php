@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('age');
             $table->string('time');
             $table->integer('capacity');
+            $table->string('image');
             $table->softDeletes();
             $table->timestamps();
 

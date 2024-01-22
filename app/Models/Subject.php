@@ -18,6 +18,7 @@ class Subject extends Model
         'age',
         'time',
         'capacity',
+        'image',
     ];
 
     public function teacher()

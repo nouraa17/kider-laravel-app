@@ -140,13 +140,13 @@ Route::get('viewTeacher/{id}',  [TeacherController::class, 'show'])->name('viewT
 ///////////////////////////////////////////////////////////////////////////////////////////
 //teacher page
 Route::get('classes',  [SubjectController::class, 'index'])->name('classes');
-// Route::get('teacherList',  [TeacherController::class, 'list'])->name('teacherList');
-// Route::get('createTeacher',  [TeacherController::class, 'create'])->name('createTeacher');
-// Route::post('storeTeacher',  [TeacherController::class, 'store'])->name('storeTeacher');
-// Route::get('editTeacher/{id}',  [TeacherController::class, 'edit'])->name('editTeacher');
-// Route::put('updateTeacher/{id}',  [TeacherController::class, 'update'])->name('updateTeacher');
-// Route::get('SdeleteTeacher/{id}',  [TeacherController::class, 'destroy'])->name('SdeleteTeacher');
-// Route::get('trashTeacher',  [TeacherController::class, 'trash'])->name('trashTeacher');
-// Route::get('FdeleteTeacher/{id}',  [TeacherController::class, 'forceDelete'])->name('FdeleteTeacher');
-// Route::get('restoreTeacher/{id}',  [TeacherController::class, 'restore'])->name('restoreTeacher');
-// Route::get('viewTeacher/{id}',  [TeacherController::class, 'show'])->name('viewTeacher');
+Route::get('subjectList',  [SubjectController::class, 'list'])->name('subjectList');
+Route::get('createSubject',  [SubjectController::class, 'create'])->name('createSubject');
+Route::post('storeSubject',  [SubjectController::class, 'store'])->name('storeSubject');
+Route::get('editSubject/{id}',  [SubjectController::class, 'edit'])->name('editSubject');
+Route::put('updateSubject/{id}',  [SubjectController::class, 'update'])->name('updateSubject');
+Route::get('SdeleteSubject/{id}',  [SubjectController::class, 'destroy'])->name('SdeleteSubject');
+Route::get('trashSubject',  [SubjectController::class, 'trash'])->name('trashSubject');
+Route::get('FdeleteSubject/{id}',  [SubjectController::class, 'forceDelete'])->name('FdeleteSubject');
+Route::get('restoreSubject/{id}',  [SubjectController::class, 'restore'])->name('restoreSubject');
+Route::get('viewSubject/{id}',  [SubjectController::class, 'show'])->name('viewSubject');

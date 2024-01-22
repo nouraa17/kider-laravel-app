@@ -5,10 +5,14 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 style="margin-left: 20px;" class="title">Testimonials List</h4>
+                    <h4 style="margin-left: 20px;" class="title">Teachers List</h4>
                 </div>
                 <div class="card-body">
-
+                    @if(session('error'))
+                    <div class="alert alert-danger">
+                        <span><b> Error - </b>{{ session('error') }}</span>
+                    </div>
+                    @endif
 
 
                     <div class="table-responsive">
@@ -51,25 +55,29 @@
                                     <td>
                                         {{$teacher->designation}}
                                     </td>
-                                    <td><img src="{{ asset('assets/teacherImages/'.$teacher->image)}}"
-                                            width=70px height=70px alt="img">
+                                    <td><img src="{{ asset('assets/teacherImages/'.$teacher->image)}}" width=70px
+                                            height=70px alt="img">
                                     </td>
-                                    <td><a href="{{$teacher->fb}}" target="_blank" style="color:blue;">Go to Facebook</a>
+                                    <td><a href="{{$teacher->fb}}" target="_blank" style="color:blue;">Go to
+                                            Facebook</a>
                                     </td>
-                                    <td><a href="{{$teacher->tw}}" target="_blank" style="color:darkcyan;">Go to Twitter</a>
+                                    <td><a href="{{$teacher->tw}}" target="_blank" style="color:darkcyan;">Go to
+                                            Twitter</a>
                                     </td>
-                                    <td><a href="{{$teacher->inst}}" target="_blank" style="color:purple;">Go to Instagram</a>
-                                    </td>
-                                    <td class="text-right">
-                                        <a href="viewTeacher/{{$teacher->id}}" class="btn btn-info" data-original-title="View"><i
-                                                class="now-ui-icons business_bulb-63"></i></a>
-                                    </td>
-                                    <td class="text-right">
-                                        <a href="editTeacher/{{$teacher->id}}" class="btn btn-secondry" data-original-title="Edit"><i
-                                                class="now-ui-icons ui-2_settings-90"></i></a>
+                                    <td><a href="{{$teacher->inst}}" target="_blank" style="color:purple;">Go to
+                                            Instagram</a>
                                     </td>
                                     <td class="text-right">
-                                        <a href="{{route('SdeleteTeacher',$teacher->id)}}" class="btn btn-danger" data-original-title="Remove"><i
+                                        <a href="viewTeacher/{{$teacher->id}}" class="btn btn-info"
+                                            data-original-title="View"><i class="now-ui-icons business_bulb-63"></i></a>
+                                    </td>
+                                    <td class="text-right">
+                                        <a href="editTeacher/{{$teacher->id}}" class="btn btn-secondry"
+                                            data-original-title="Edit"><i class="now-ui-icons ui-2_settings-90"></i></a>
+                                    </td>
+                                    <td class="text-right">
+                                        <a href="{{route('SdeleteTeacher',$teacher->id)}}" class="btn btn-danger"
+                                            data-original-title="Remove"><i
                                                 class="now-ui-icons ui-1_simple-delete"></i></a>
                                     </td>
                                 </tr>
@@ -85,9 +93,10 @@
                                 <a href="{{route('createTeacher')}}" style="font-size: 16px; color:white;"
                                     class="btn btn-primary w-100 py-3" type="submit">Add
                                     Teacher</a>
-                                    <a href="{{route('trashTeacher')}}" style="font-size: 16px; color:white;"
-                                    class="btn btn-primary w-100 py-3" type="submit"><i class="now-ui-icons files_box"></i> Trash</a>
-                                    </div>
+                                <a href="{{route('trashTeacher')}}" style="font-size: 16px; color:white;"
+                                    class="btn btn-primary w-100 py-3" type="submit"><i
+                                        class="now-ui-icons files_box"></i> Trash</a>
+                            </div>
                         </div>
                     </div>
 

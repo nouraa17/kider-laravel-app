@@ -10,14 +10,16 @@
   </div>
   <div class="sidebar-wrapper" id="sidebar-wrapper">
     <ul class="nav">
-    <li class="{{ in_array(request()->route()->getName(), ['teacherList','createTeacher','editTeacher','viewTeacher']) ? 'active' : '' }}">
+      <li
+        class="{{ in_array(request()->route()->getName(), ['teacherList','createTeacher','editTeacher','viewTeacher','trashTeacher']) ? 'active' : '' }}">
         <a href="{{route('teacherList')}}">
           <i class="now-ui-icons users_single-02"></i>
           <p>Teachers</p>
         </a>
       </li>
-      <li>
-        <a href="">
+      <li
+        class="{{ in_array(request()->route()->getName(), ['subjectList','createSubject','editSubject','viewSubject','trashSubject']) ? 'active' : '' }}">
+        <a href="{{route('subjectList')}}">
           <i class="now-ui-icons objects_planet"></i>
           <p>Classes</p>
         </a>
@@ -37,8 +39,7 @@
         </a>
       </li>
 
-      <li
-        class="{{ in_array(request()->route()->getName(), ['contactUsList', 'viewContactUs']) ? 'active' : '' }}">
+      <li class="{{ in_array(request()->route()->getName(), ['contactUsList', 'viewContactUs']) ? 'active' : '' }}">
         <a href="{{route('contactUsList')}}">
           <i class="now-ui-icons ui-2_chat-round"></i>
           <p>Contacts</p>

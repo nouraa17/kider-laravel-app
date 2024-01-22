@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 style="margin-left: 20px;" class="title">Testimonials List</h4>
+                    <h4 style="margin-left: 20px;" class="title">Classes List</h4>
                 </div>
                 <div class="card-body">
 
@@ -15,23 +15,27 @@
                         <table class="table">
                             <thead class=" text-primary">
                                 <th>
-                                    Full Name
+                                    Class Name
                                 </th>
                                 <th>
-                                    Designation
+                                    Teacher Name
+                                </th>
+                                <th>
+                                    Price
+                                </th>
+                                <th>
+                                    Age
+                                </th>
+                                <th>
+                                    Time
+                                </th>
+                                <th>
+                                    Capacity
                                 </th>
                                 <th>
                                     Image
                                 </th>
-                                <th>
-                                    Facebook
-                                </th>
-                                <th>
-                                    Twitter
-                                </th>
-                                <th>
-                                    Instagram
-                                </th>
+
                                 <th class="text-right">
                                     Show
                                 </th>
@@ -43,33 +47,40 @@
                                 </th>
                             </thead>
                             <tbody>
-                                @foreach($teachers as $teacher)
+                                @foreach($subjects as $subject)
                                 <tr>
                                     <td>
-                                        {{$teacher->fullName}}
+                                        {{$subject->subjectName}}
                                     </td>
                                     <td>
-                                        {{$teacher->designation}}
+                                        {{$subject->teacherId ? $subject->teacher->fullName : 'N/A'}}
                                     </td>
-                                    <td><img src="{{ asset('assets/teacherImages/'.$teacher->image)}}"
-                                            width=70px height=70px alt="img">
+                                    <td>
+                                        {{$subject->price}}
                                     </td>
-                                    <td><a href="{{$teacher->fb}}" target="_blank" style="color:blue;">Go to Facebook</a>
+                                    <td>
+                                        {{$subject->age}}
                                     </td>
-                                    <td><a href="{{$teacher->tw}}" target="_blank" style="color:darkcyan;">Go to Twitter</a>
+                                    <td>
+                                        {{$subject->time}}
                                     </td>
-                                    <td><a href="{{$teacher->inst}}" target="_blank" style="color:purple;">Go to Instagram</a>
+                                    <td>
+                                        {{$subject->capacity}}
                                     </td>
-                                    <td class="text-right">
-                                        <a href="viewTeacher/{{$teacher->id}}" class="btn btn-info" data-original-title="View"><i
-                                                class="now-ui-icons business_bulb-63"></i></a>
-                                    </td>
-                                    <td class="text-right">
-                                        <a href="editTeacher/{{$teacher->id}}" class="btn btn-secondry" data-original-title="Edit"><i
-                                                class="now-ui-icons ui-2_settings-90"></i></a>
+                                    <td><img src="{{ asset('assets/subjectImages/'.$subject->image)}}" width=70px
+                                            height=70px alt="img">
                                     </td>
                                     <td class="text-right">
-                                        <a href="{{route('SdeleteTeacher',$teacher->id)}}" class="btn btn-danger" data-original-title="Remove"><i
+                                        <a href="viewSubject/{{$subject->id}}" class="btn btn-info"
+                                            data-original-title="View"><i class="now-ui-icons business_bulb-63"></i></a>
+                                    </td>
+                                    <td class="text-right">
+                                        <a href="editSubject/{{$subject->id}}" class="btn btn-secondry"
+                                            data-original-title="Edit"><i class="now-ui-icons ui-2_settings-90"></i></a>
+                                    </td>
+                                    <td class="text-right">
+                                        <a href="{{route('SdeleteSubject',$subject->id)}}" class="btn btn-danger"
+                                            data-original-title="Remove"><i
                                                 class="now-ui-icons ui-1_simple-delete"></i></a>
                                     </td>
                                 </tr>
@@ -82,12 +93,13 @@
                     <div class="row mb-2">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <a href="{{route('createTeacher')}}" style="font-size: 16px; color:white;"
+                                <a href="{{route('createSubject')}}" style="font-size: 16px; color:white;"
                                     class="btn btn-primary w-100 py-3" type="submit">Add
-                                    Teacher</a>
-                                    <a href="{{route('trashTeacher')}}" style="font-size: 16px; color:white;"
-                                    class="btn btn-primary w-100 py-3" type="submit"><i class="now-ui-icons files_box"></i> Trash</a>
-                                    </div>
+                                    Class</a>
+                                <a href="{{route('trashSubject')}}" style="font-size: 16px; color:white;"
+                                    class="btn btn-primary w-100 py-3" type="submit"><i
+                                        class="now-ui-icons files_box"></i> Trash</a>
+                            </div>
                         </div>
                     </div>
 

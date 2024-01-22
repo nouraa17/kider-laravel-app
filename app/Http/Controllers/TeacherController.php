@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Subject;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Traits\Common;
@@ -114,8 +115,11 @@ class TeacherController extends Controller
      */
     public function destroy(string $id)
     {
-        Teacher::where('id', $id)->delete();
-        return redirect('teacherList');
+        if (Subject::where('teacherId', $id)->exists()) {
+            return redirect('teacherList')->with('error', 'Teacher is assigned to a class. Cannot delete.');
+        }
+            Teacher::where('id', $id)->delete();
+        return redirect('teacherList')->with('success', 'Teacher deleted successfully.');
     }
     // ///////////////////////////////////////////////////////////////////////////
     public function trash()

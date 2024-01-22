@@ -34,6 +34,7 @@ price
 age
 time
 capacity
+image
 
 ///////////////////////////////*************************////////////////////////////////////
 creating Testimonial model
