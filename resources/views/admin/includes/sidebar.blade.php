@@ -39,7 +39,7 @@
         </a>
       </li>
 
-      <li class="{{ in_array(request()->route()->getName(), ['contactUsList', 'viewContactUs']) ? 'active' : '' }}">
+      <li class="{{ in_array(request()->route()->getName(), ['contactUsList', 'viewContactUs','unreadContactUs']) ? 'active' : '' }}">
         <a href="{{route('contactUsList')}}">
           <i class="now-ui-icons ui-2_chat-round"></i>
           <p>Contacts</p>

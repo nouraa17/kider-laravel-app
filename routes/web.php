@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Auth::routes(['verify'=>true]);
+Auth::routes(['verify' => true]);
 
 Auth::routes();
 
@@ -89,64 +89,66 @@ Route::get('schoolFacilities', [PageController::class, 'schoolFacilities'])->nam
 
 // Route::get('teachers',  [PageController::class, 'teachers'])->name('teachers');
 
-Route::get('becomeTeacher',  [PageController::class, 'becomeTeacher'])->name('becomeTeacher');
+Route::get('becomeTeacher', [PageController::class, 'becomeTeacher'])->name('becomeTeacher');
 
-Route::get('appointment',  [PageController::class, 'appointment'])->name('appointment');
+Route::get('appointment', [PageController::class, 'appointment'])->name('appointment');
 
 // Route::get('testimonial',  [PageController::class, 'testimonial'])->name('testimonial');
 
 Route::fallback(PageController::class)->name('404');
 ///////////////////////////////////////////////////////////////////////////////////////////
 //testimonial page
-Route::get('testimonial',  [TestimonialController::class, 'index'])->name('testimonial');
-Route::get('testimonialList',  [TestimonialController::class, 'list'])->name('testimonialList');
-Route::get('createTestimonial',  [TestimonialController::class, 'create'])->name('createTestimonial');
-Route::post('storeTestimonial',  [TestimonialController::class, 'store'])->name('storeTestimonial');
-Route::get('editTestimonial/{id}',  [TestimonialController::class, 'edit'])->name('editTestimonial');
-Route::put('updateTestimonial/{id}',  [TestimonialController::class, 'update'])->name('updateTestimonial');
-Route::get('SdeleteTestimonial/{id}',  [TestimonialController::class, 'destroy'])->name('SdeleteTestimonial');
-Route::get('trashTestimonial',  [TestimonialController::class, 'trash'])->name('trashTestimonial');
-Route::get('FdeleteTestimonial/{id}',  [TestimonialController::class, 'forceDelete'])->name('FdeleteTestimonial');
-Route::get('restoreTestimonial/{id}',  [TestimonialController::class, 'restore'])->name('restoreTestimonial');
-Route::get('viewTestimonial/{id}',  [TestimonialController::class, 'show'])->name('viewTestimonial');
+Route::get('testimonial', [TestimonialController::class, 'index'])->name('testimonial');
+Route::get('testimonialList', [TestimonialController::class, 'list'])->name('testimonialList');
+Route::get('createTestimonial', [TestimonialController::class, 'create'])->name('createTestimonial');
+Route::post('storeTestimonial', [TestimonialController::class, 'store'])->name('storeTestimonial');
+Route::get('editTestimonial/{id}', [TestimonialController::class, 'edit'])->name('editTestimonial');
+Route::put('updateTestimonial/{id}', [TestimonialController::class, 'update'])->name('updateTestimonial');
+Route::get('SdeleteTestimonial/{id}', [TestimonialController::class, 'destroy'])->name('SdeleteTestimonial');
+Route::get('trashTestimonial', [TestimonialController::class, 'trash'])->name('trashTestimonial');
+Route::get('FdeleteTestimonial/{id}', [TestimonialController::class, 'forceDelete'])->name('FdeleteTestimonial');
+Route::get('restoreTestimonial/{id}', [TestimonialController::class, 'restore'])->name('restoreTestimonial');
+Route::get('viewTestimonial/{id}', [TestimonialController::class, 'show'])->name('viewTestimonial');
 ///////////////////////////////////////////////////////////////////////////////////////////
 //appointment page
-Route::get('appointmentList',  [AppointmentController::class, 'index'])->name('appointmentList');
-Route::post('storeAppointment',  [AppointmentController::class, 'store'])->name('storeAppointment');
-Route::get('SdeleteAppointment/{id}',  [AppointmentController::class, 'destroy'])->name('SdeleteAppointment');
-Route::get('trashAppointment',  [AppointmentController::class, 'trash'])->name('trashAppointment');
-Route::get('FdeleteAppointment/{id}',  [AppointmentController::class, 'forceDelete'])->name('FdeleteAppointment');
-Route::get('restoreAppointment/{id}',  [AppointmentController::class, 'restore'])->name('restoreAppointment');
-Route::get('viewAppointment/{id}',  [AppointmentController::class, 'show'])->name('viewAppointment');
+Route::get('appointmentList', [AppointmentController::class, 'index'])->name('appointmentList');
+Route::post('storeAppointment', [AppointmentController::class, 'store'])->name('storeAppointment');
+Route::get('SdeleteAppointment/{id}', [AppointmentController::class, 'destroy'])->name('SdeleteAppointment');
+Route::get('trashAppointment', [AppointmentController::class, 'trash'])->name('trashAppointment');
+Route::get('FdeleteAppointment/{id}', [AppointmentController::class, 'forceDelete'])->name('FdeleteAppointment');
+Route::get('restoreAppointment/{id}', [AppointmentController::class, 'restore'])->name('restoreAppointment');
+Route::get('viewAppointment/{id}', [AppointmentController::class, 'show'])->name('viewAppointment');
 ///////////////////////////////////////////////////////////////////////////////////////////
 //contactUs page
-Route::get('contactUsList',  [ContactController::class, 'index'])->name('contactUsList');
+Route::get('contactUsList', [ContactController::class, 'index'])->name('contactUsList');
 Route::post('/contactSubmit', [ContactController::class, 'store'])->name('contactSubmit');
-Route::get('viewContactUs/{id}',  [ContactController::class, 'show'])->name('viewContactUs');
-Route::get('deleteContact/{id}',  [ContactController::class, 'destroy'])->name('deleteContact');
+Route::get('viewContactUs/{id}', [ContactController::class, 'show'])->name('viewContactUs');
+Route::get('deleteContact/{id}', [ContactController::class, 'destroy'])->name('deleteContact');
+Route::get('unreadContactUs/', [ContactController::class, 'unread'])->name('unreadContactUs');
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 //teacher page
-Route::get('teachers',  [TeacherController::class, 'index'])->name('teachers');
-Route::get('teacherList',  [TeacherController::class, 'list'])->name('teacherList');
-Route::get('createTeacher',  [TeacherController::class, 'create'])->name('createTeacher');
-Route::post('storeTeacher',  [TeacherController::class, 'store'])->name('storeTeacher');
-Route::get('editTeacher/{id}',  [TeacherController::class, 'edit'])->name('editTeacher');
-Route::put('updateTeacher/{id}',  [TeacherController::class, 'update'])->name('updateTeacher');
-Route::get('SdeleteTeacher/{id}',  [TeacherController::class, 'destroy'])->name('SdeleteTeacher');
-Route::get('trashTeacher',  [TeacherController::class, 'trash'])->name('trashTeacher');
-Route::get('FdeleteTeacher/{id}',  [TeacherController::class, 'forceDelete'])->name('FdeleteTeacher');
-Route::get('restoreTeacher/{id}',  [TeacherController::class, 'restore'])->name('restoreTeacher');
-Route::get('viewTeacher/{id}',  [TeacherController::class, 'show'])->name('viewTeacher');
+Route::get('teachers', [TeacherController::class, 'index'])->name('teachers');
+Route::get('teacherList', [TeacherController::class, 'list'])->name('teacherList');
+Route::get('createTeacher', [TeacherController::class, 'create'])->name('createTeacher');
+Route::post('storeTeacher', [TeacherController::class, 'store'])->name('storeTeacher');
+Route::get('editTeacher/{id}', [TeacherController::class, 'edit'])->name('editTeacher');
+Route::put('updateTeacher/{id}', [TeacherController::class, 'update'])->name('updateTeacher');
+Route::get('SdeleteTeacher/{id}', [TeacherController::class, 'destroy'])->name('SdeleteTeacher');
+Route::get('trashTeacher', [TeacherController::class, 'trash'])->name('trashTeacher');
+Route::get('FdeleteTeacher/{id}', [TeacherController::class, 'forceDelete'])->name('FdeleteTeacher');
+Route::get('restoreTeacher/{id}', [TeacherController::class, 'restore'])->name('restoreTeacher');
+Route::get('viewTeacher/{id}', [TeacherController::class, 'show'])->name('viewTeacher');
 ///////////////////////////////////////////////////////////////////////////////////////////
-//teacher page
-Route::get('classes',  [SubjectController::class, 'index'])->name('classes');
-Route::get('subjectList',  [SubjectController::class, 'list'])->name('subjectList');
-Route::get('createSubject',  [SubjectController::class, 'create'])->name('createSubject');
-Route::post('storeSubject',  [SubjectController::class, 'store'])->name('storeSubject');
-Route::get('editSubject/{id}',  [SubjectController::class, 'edit'])->name('editSubject');
-Route::put('updateSubject/{id}',  [SubjectController::class, 'update'])->name('updateSubject');
-Route::get('SdeleteSubject/{id}',  [SubjectController::class, 'destroy'])->name('SdeleteSubject');
-Route::get('trashSubject',  [SubjectController::class, 'trash'])->name('trashSubject');
-Route::get('FdeleteSubject/{id}',  [SubjectController::class, 'forceDelete'])->name('FdeleteSubject');
-Route::get('restoreSubject/{id}',  [SubjectController::class, 'restore'])->name('restoreSubject');
-Route::get('viewSubject/{id}',  [SubjectController::class, 'show'])->name('viewSubject');
+//class page
+Route::get('classes', [SubjectController::class, 'index'])->name('classes');
+Route::get('subjectList', [SubjectController::class, 'list'])->name('subjectList');
+Route::get('createSubject', [SubjectController::class, 'create'])->name('createSubject');
+Route::post('storeSubject', [SubjectController::class, 'store'])->name('storeSubject');
+Route::get('editSubject/{id}', [SubjectController::class, 'edit'])->name('editSubject');
+Route::put('updateSubject/{id}', [SubjectController::class, 'update'])->name('updateSubject');
+Route::get('SdeleteSubject/{id}', [SubjectController::class, 'destroy'])->name('SdeleteSubject');
+Route::get('trashSubject', [SubjectController::class, 'trash'])->name('trashSubject');
+Route::get('FdeleteSubject/{id}', [SubjectController::class, 'forceDelete'])->name('FdeleteSubject');
+Route::get('restoreSubject/{id}', [SubjectController::class, 'restore'])->name('restoreSubject');
+Route::get('viewSubject/{id}', [SubjectController::class, 'show'])->name('viewSubject');

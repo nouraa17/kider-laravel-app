@@ -19,8 +19,10 @@ class ContactFactory extends Factory
         return [
             'name' => $this->faker->name,
             'email' => $this->faker->email,
-            'subject' => $this->faker->sentence,
+            'subject' => $this->faker->words(3, true),
             'message' => $this->faker->paragraph,
+            'is_viewed' => $this->faker->boolean,
+
         ];
     }
 }

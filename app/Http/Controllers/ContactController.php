@@ -22,7 +22,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::get();
+        // $contacts = Contact::get();
+        $contacts = Contact::paginate(3);
         return view('admin.contactUs.listContactUs', compact('contacts'));
     }
 
@@ -31,7 +32,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        
+
 
     }
 
@@ -65,6 +66,10 @@ class ContactController extends Controller
     public function show(string $id)
     {
         $contact = Contact::findOrFail($id);
+        if ($contact) {
+            $contact->is_viewed = true;
+            $contact->save();
+        }
         return view('admin.contactUs.viewContactUs', compact('contact'));
     }
 
@@ -92,4 +97,12 @@ class ContactController extends Controller
         Contact::where('id', $id)->delete();
         return redirect('contactUsList');
     }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    public function unread()
+    {
+        $contacts = Contact::where('is_viewed', false)->get();
+        return view('admin.contactUs.unread', compact('contacts'));
+    }
+
 }
