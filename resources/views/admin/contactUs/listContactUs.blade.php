@@ -68,7 +68,7 @@
                             </div>
                         </div>
                     </div>
-
+             
 
 
                     <div class="row mb-2">
@@ -76,7 +76,7 @@
                             <div class="form-group">
                                 <a href="{{route('unreadContactUs')}}" style="font-size: 16px; color:white;"
                                     class="btn btn-primary w-100 py-3" type="submit"><i
-                                        class="now-ui-icons files_box"></i> Unread messages</a>
+                                        class="now-ui-icons ui-1_send"></i> Unread messages <span style="background-color: rgba(255, 255, 255, 0.3);border-radius: 50%; padding: 5px 10px;">{{ $unreadCount }}</span></a>
                             </div>
                         </div>
                     </div>

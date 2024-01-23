@@ -24,7 +24,9 @@ class ContactController extends Controller
     {
         // $contacts = Contact::get();
         $contacts = Contact::paginate(3);
-        return view('admin.contactUs.listContactUs', compact('contacts'));
+        $unreadCount = Contact::where('is_viewed', false)->count();
+
+        return view('admin.contactUs.listContactUs', compact('contacts','unreadCount'));
     }
 
     /**
@@ -102,7 +104,8 @@ class ContactController extends Controller
     public function unread()
     {
         $contacts = Contact::where('is_viewed', false)->get();
-        return view('admin.contactUs.unread', compact('contacts'));
+        $allCount = Contact::count();
+        return view('admin.contactUs.unread', compact('contacts','allCount'));
     }
 
 }
