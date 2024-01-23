@@ -107,5 +107,11 @@ class ContactController extends Controller
         $allCount = Contact::count();
         return view('admin.contactUs.unread', compact('contacts','allCount'));
     }
+    
+    // public function navbar()
+    // {
+    //     $unreadCount = Contact::where('is_viewed', false)->count();
+    //     return view('admin.includes.nav', compact('unreadCount'));
+    // }
 
 }

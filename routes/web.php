@@ -6,8 +6,8 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TestimonialController;
-use App\Models\Testimonial;
 use Illuminate\Support\Facades\Route;
+Auth::routes(['verify'=>true]);
 
 /*
 |--------------------------------------------------------------------------
@@ -98,7 +98,7 @@ Route::get('appointment', [PageController::class, 'appointment'])->name('appoint
 Route::fallback(PageController::class)->name('404');
 ///////////////////////////////////////////////////////////////////////////////////////////
 //testimonial page
-Route::get('testimonial', [TestimonialController::class, 'index'])->name('testimonial');
+Route::get('testimonial', [TestimonialController::class, 'index'])->middleware('verified')->name('testimonial');
 Route::get('testimonialList', [TestimonialController::class, 'list'])->name('testimonialList');
 Route::get('createTestimonial', [TestimonialController::class, 'create'])->name('createTestimonial');
 Route::post('storeTestimonial', [TestimonialController::class, 'store'])->name('storeTestimonial');
@@ -140,7 +140,7 @@ Route::get('FdeleteTeacher/{id}', [TeacherController::class, 'forceDelete'])->na
 Route::get('restoreTeacher/{id}', [TeacherController::class, 'restore'])->name('restoreTeacher');
 Route::get('viewTeacher/{id}', [TeacherController::class, 'show'])->name('viewTeacher');
 ///////////////////////////////////////////////////////////////////////////////////////////
-//class page
+//subject page
 Route::get('classes', [SubjectController::class, 'index'])->name('classes');
 Route::get('subjectList', [SubjectController::class, 'list'])->name('subjectList');
 Route::get('createSubject', [SubjectController::class, 'create'])->name('createSubject');
