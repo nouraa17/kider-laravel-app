@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Subject;
 use App\Models\Teacher;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
@@ -15,9 +16,12 @@ class PageController extends Controller
     public function index()
     {
         // $testimonials = Testimonial::get();
+
         $testimonials = Testimonial::where('published', true)->latest()->take(3)->get();
         $teachers = Teacher::get();
-        return view('index', compact('testimonials','teachers'));
+        $subjects = Subject::get();
+
+        return view('index', compact('testimonials','teachers','subjects'));
     }
     public function about()
     {
